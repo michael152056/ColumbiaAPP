@@ -1,0 +1,16 @@
+<div class="barra-lateral col-12 col-sm-auto">
+<nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+     <a routerLink = "/dashboard-cliente" ><i class="fas fa-home"></i><span>Inicio</span></a>  
+     <a (click) = "actDatos()" ><i class="fas fa-user"></i><span>Actualizar Datos</span></a>
+     <a routerLink="/ventas"><i class="fas fa-cash-register"></i><span>Ventas </span></a>
+     <a routerLink="/transacciones"><i class="fas fa-cart-arrow-down"></i><span>Transacciones</span></a>
+     <a routerLink="/inventario"><i class="fas fa-shopping-bag"></i><span>Inventario </span></a>
+     <a routerLink="/transacciones"><i class="fas fa-archive"></i><span>Movimientos de caja </span></a>
+     <a routerLink="/crudClientes"><i class="fas fa-users"></i><span>Clientes </span></a>
+     <a (click)="authService.logout()"><i class="fas fa-door-open"></i><span>Cerrar Sesión </span></a>
+</nav>
+</div>
+
+
+
+

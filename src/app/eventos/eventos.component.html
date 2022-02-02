@@ -55,12 +55,12 @@
   <br>
 
   <div class="row container_proyectos">
-    <div id="panel_regresar" class="col col-11 cols-sm-4 col-md-4 col-lg-3 container_filtros shadow-sm mb-5 bg-body rounded">
+    <div id="panel_regresar" *ngIf="isShown" class="col col-11 cols-sm-4 col-md-4 col-lg-3 container_filtros shadow-sm mb-5 bg-body rounded">
       <div class="row">
         <div class="col">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Comienza tu búsqueda" aria-label="Example text with button addon" aria-describedby="button-addon1">
-            <button class="btn btn-outline-secondary btn_buscar" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+            <input type="text" class="form-control" name="filterPost" [(ngModel)]="filterPost" placeholder="Comienza tu búsqueda" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <button class="btn btn-outline-secondary btn_buscar"  (click) = "onSearch()" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
           </div>
         </div>
       </div>
@@ -113,10 +113,9 @@
           <div class="row ordenar_combo">
             <select class="form-select" aria-label="Default select example">
               <option selected>Seleccione</option>
-              <option value="1">Más destacados</option>
-              <option value="3">Más recientes</option>
-              <option value="2">Más antiguos</option>
-              <option value="2">Más likes</option>
+              <option value="1">Más recientes</option>
+              <option value="3">Más antiguos</option>
+              <option value="2">Más votados</option>
             </select>
           </div>
         </div>
@@ -126,7 +125,15 @@
             <small>Desde:</small><br>
           </div>
           <div class="row ordenar_combo">
-            <input class="form-control" type="date">
+            <input type="date" class="form-control">
+            <!-- <mat-form-field appearance="fill">
+              <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="picker">
+                <input matStartDate formControlName="start"  placeholder="Start date">
+                <input matEndDate formControlName="end" placeholder="End date">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field> -->
           </div>
         </div>
         <br>
@@ -135,269 +142,37 @@
             <small>Hasta:</small><br>
           </div>
           <div class="row ordenar_combo">
-            <input class="form-control" type="date">
+            <input type="date" class="form-control">
+            <!-- <mat-form-field appearance="fill">
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker2" [(ngModel)] = "pickerDate2">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field> -->
           </div>
         </div>
       </div>
     </div>
     <div class="col col-1 btn_regresar">
-      <button id="btn_ocultar" onclick="ocultar()"><i class="fas fa-chevron-left"></i></button>
+      <button id="btn_ocultar"  style="display:block" (click)="toggleShow()"><i class="fas fa-chevron-left"></i></button>
     </div>
     <div class="col">
-      <div class="row container_pagination">
-        <div class="col pagination_items">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a></li>
-              <li class="page-item active"><a class="page-link active2" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="col cont_resultados">
-          <p>204 resultados</p>
-        </div>
-        <div class="col vista">
-          <button class="rounded active_button"><i class="fas fa-th"></i></button>
-          <button class="rounded"><i class="fas fa-th-list"></i></button>
-        </div>
-      </div>
-      <div class="row container__card row-cols-lg-2 row-cols-1 justify-content-center">
-        <div class="col snip1529">
-          <div class="snip__container">
-            <div class="img__snip" style="background-image: url(/assets/1evento.jpeg);"></div>
-            <div class="date"><span class="day">5</span><span class="month">OCT</span></div>
+      <div *ngIf="listEventos.length > 0" class="row container__card row-cols-lg-2  row-cols-1 justify-content-center">
+        <div *ngFor= "let evento of listEventos | filter:filterPost" class="col snip1529">
+          <div  class="snip__container">
+            <div class="img__snip" style="background-image: url({{evento.imagen_evento}});"></div>
+            <div class="date"><span class="day">{{evento.dia_evento}}</span><span class="month">{{evento.mes_evento}}</span></div>
             <div class="hover"><i class="fas fa-eye"></i>
-              &nbsp;485
+              &nbsp;
               <a href="${tarjetas_publicaciones.enlace[i]}"></a>
             </div>
 
           </div>
-          <div class="container__interactions">
-            <div class="interactions__like">
-              <div class="icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <div class="count">
-                18
-              </div>
-            </div>
-            <div class="interactions__comment">
-              <div class="icon">
-                <i class="fas fa-comment-dots"></i>
-              </div>
-              <div class="count">
-                36
-              </div>
-            </div>
-            <div class="interactions__share">
-              <div class="icon">
-                <i class="fas fa-share"></i>
-              </div>
-              <div class="count">
-                9
-              </div>
-            </div>
+          <div class="container_titulo_eventos">
+            {{evento.titulo_evento}}
           </div>
-
         </div>
-
-        <div class="col snip1529">
-          <div class="snip__container">
-            <div class="img__snip" style="background-image: url(/assets/1evento.jpeg);"></div>
-            <div class="date"><span class="day">5</span><span class="month">OCT</span></div>
-            <div class="hover"><i class="fas fa-eye"></i>
-              &nbsp;485
-              <a href="${tarjetas_publicaciones.enlace[i]}"></a>
-            </div>
-
-          </div>
-          <div class="container__interactions">
-            <div class="interactions__like">
-              <div class="icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <div class="count">
-                18
-              </div>
-            </div>
-            <div class="interactions__comment">
-              <div class="icon">
-                <i class="fas fa-comment-dots"></i>
-              </div>
-              <div class="count">
-                36
-              </div>
-            </div>
-            <div class="interactions__share">
-              <div class="icon">
-                <i class="fas fa-share"></i>
-              </div>
-              <div class="count">
-                9
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col snip1529">
-          <div class="snip__container">
-            <div class="img__snip" style="background-image: url(/assets/1evento.jpeg);"></div>
-            <div class="date"><span class="day">5</span><span class="month">OCT</span></div>
-            <div class="hover"><i class="fas fa-eye"></i>
-              &nbsp;485
-              <a href="${tarjetas_publicaciones.enlace[i]}"></a>
-            </div>
-
-          </div>
-          <div class="container__interactions">
-            <div class="interactions__like">
-              <div class="icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <div class="count">
-                18
-              </div>
-            </div>
-            <div class="interactions__comment">
-              <div class="icon">
-                <i class="fas fa-comment-dots"></i>
-              </div>
-              <div class="count">
-                36
-              </div>
-            </div>
-            <div class="interactions__share">
-              <div class="icon">
-                <i class="fas fa-share"></i>
-              </div>
-              <div class="count">
-                9
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col snip1529">
-          <div class="snip__container">
-            <div class="img__snip" style="background-image: url(/assets/1evento.jpeg);"></div>
-            <div class="date"><span class="day">5</span><span class="month">OCT</span></div>
-            <div class="hover"><i class="fas fa-eye"></i>
-              &nbsp;485
-              <a href="${tarjetas_publicaciones.enlace[i]}"></a>
-            </div>
-
-          </div>
-          <div class="container__interactions">
-            <div class="interactions__like">
-              <div class="icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <div class="count">
-                18
-              </div>
-            </div>
-            <div class="interactions__comment">
-              <div class="icon">
-                <i class="fas fa-comment-dots"></i>
-              </div>
-              <div class="count">
-                36
-              </div>
-            </div>
-            <div class="interactions__share">
-              <div class="icon">
-                <i class="fas fa-share"></i>
-              </div>
-              <div class="count">
-                9
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col snip1529">
-          <div class="snip__container">
-            <div class="img__snip" style="background-image: url(/assets/1evento.jpeg);"></div>
-            <div class="date"><span class="day">5</span><span class="month">OCT</span></div>
-            <div class="hover"><i class="fas fa-eye"></i>
-              &nbsp;485
-              <a href="${tarjetas_publicaciones.enlace[i]}"></a>
-            </div>
-
-          </div>
-          <div class="container__interactions">
-            <div class="interactions__like">
-              <div class="icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <div class="count">
-                18
-              </div>
-            </div>
-            <div class="interactions__comment">
-              <div class="icon">
-                <i class="fas fa-comment-dots"></i>
-              </div>
-              <div class="count">
-                36
-              </div>
-            </div>
-            <div class="interactions__share">
-              <div class="icon">
-                <i class="fas fa-share"></i>
-              </div>
-              <div class="count">
-                9
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col snip1529">
-          <div class="snip__container">
-            <div class="img__snip" style="background-image: url(/assets/1evento.jpeg);"></div>
-            <div class="date"><span class="day">5</span><span class="month">OCT</span></div>
-            <div class="hover"><i class="fas fa-eye"></i>
-              &nbsp;485
-              <a href="${tarjetas_publicaciones.enlace[i]}"></a>
-            </div>
-
-          </div>
-          <div class="container__interactions">
-            <div class="interactions__like">
-              <div class="icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <div class="count">
-                18
-              </div>
-            </div>
-            <div class="interactions__comment">
-              <div class="icon">
-                <i class="fas fa-comment-dots"></i>
-              </div>
-              <div class="count">
-                36
-              </div>
-            </div>
-            <div class="interactions__share">
-              <div class="icon">
-                <i class="fas fa-share"></i>
-              </div>
-              <div class="count">
-                9
-              </div>
-            </div>
-          </div>
-
-        </div>
+    <!--     <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator> -->
       </div>
       <br>
       <div class="row container_pagination2 justify-content-center row-cols-auto">
@@ -410,7 +185,15 @@
             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
           </ul>
         </nav>
+      </div> 
+     
+      <br>
+      <div class="row">
+        <div class="col justify-content-center cont_resultados">
+          <p>{{valorTotal()}} resultados</p>
+        </div>
       </div>
+      
     </div>
     </div>
     <br>

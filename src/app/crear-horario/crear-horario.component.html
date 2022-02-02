@@ -1,0 +1,195 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="barra-lateral col-12 col-sm-auto">
+            <app-menu-admin></app-menu-admin>
+        </div>
+        <div class="col container mt-5">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="card">
+                        <div class="card-body  ">
+                            <span class="titulo">
+                                {{titulo | uppercase}}
+                            </span>
+                            <form class="mt-3" [formGroup]="horarioForm" (ngSubmit)="agregarHorario()">
+                                <div class="mb-3">
+                                    <label for="correo" class="mb-2"><strong>Correo electrónico:</strong> </label>
+                                    <input name="correo" formControlName="correo" type="email" placeholder="Correo"
+                                        class="form-control form-control-lg" aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('correo')?.hasError('required') && horarioForm.get('correo')?.touched">
+                                        <span>El correo del usuario <strong>es obligatorio</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="nombres" class="mb-2"><strong>Nombres:</strong> </label>
+                                    <input name="nombres" formControlName="nombres" type="text" placeholder="Nombres"
+                                        class="form-control form-control-lg" aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('nombres')?.hasError('required') && horarioForm.get('nombres')?.touched">
+                                        <span>Los nombres <strong>son obligatorios</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="laboratorio" class="mb-2"><strong>Laboratorio:</strong> </label>
+                                    <select formControlName="laboratorio" name="laboratorio"
+                                    class="form-control form-control-lg" aria-describedby="emailHelp">
+                                       <option value="" >------Seleccione una opción-----</option>  
+                                        <option value="Interacción Humano Máquina" >Interacción Humano Máquina</option>    
+                                        <option value="Computación Avanzada">Computación Avanzada</option>    
+                                        <option value="Networking 1">Networking 1</option>    
+                                        <option value="Networking 2">Networking 2</option>    
+                                        <option value="Networking 3">Networking 3</option>    
+                                      </select>    
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('laboratorio')?.hasError('required') && horarioForm.get('laboratorio')?.touched">
+                                        <span>El laboratorio <strong>es obligatorio</strong></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cargo" class="mb-2"><strong>Cargo:</strong> </label>
+                                    <select formControlName="cargo" name="cargo"
+                                    class="form-control form-control-lg" aria-describedby="emailHelp">
+                                       <option value="" >------Seleccione una opción-----</option>  
+                                        <option value="Estudiante" >Estudiante</option>    
+                                        <option value="Docente">Docente</option>    
+                                      </select>    
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('cargo')?.hasError('required') && horarioForm.get('cargo')?.touched">
+                                        <span>El cargo<strong>es obligatorio</strong></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="carrera" class="mb-2"><strong>Carrera:</strong> </label>
+                                    <select formControlName="carrera" name="carrera"
+                                    class="form-control form-control-lg" aria-describedby="emailHelp">
+                                       <option value="" >------Seleccione una opción-----</option>  
+                                        <option value="Computación" >Computación</option>    
+                                        <option value="Sistemas">Sistemas</option>    
+                                        <option value="Electricidad" >Electricidad</option>    
+                                        <option value="Electrónica">Electrónica</option>
+                                        <option value="Telecomunicaciones" >Telecomunicaciones</option>    
+                                        <option value="Ambiental">Ambiental</option>     
+                                        <option value="Civil" >Civil</option>    
+                                        <option value="Mecánica">Mecánica</option>   
+                                        <option value="Automotriz" >Automotriz</option>    
+                                        <option value="Maestria">Maestria</option>   
+                                        <option value="Cecasis">Cecasis</option>   
+                                      </select>    
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('carrera')?.hasError('required') && horarioForm.get('carrera')?.touched">
+                                        <span>La carrera<strong>es obligatoria</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="nivel" class="mb-2"><strong>Nivel:</strong> </label>
+                                    <select formControlName="nivel" name="nivel"
+                                    class="form-control form-control-lg" aria-describedby="emailHelp">
+                                       <option value="" >------Seleccione una opción-----</option>  
+                                        <option value="1" >Primer</option>    
+                                        <option value="2">Segundo</option>    
+                                        <option value="3" >Tercero</option>    
+                                        <option value="4">Cuarto</option>
+                                        <option value="5" >Quinto</option>    
+                                        <option value="6">Sexto</option>     
+                                        <option value="7" >Séptimo</option>    
+                                        <option value="8">Octavo</option>   
+                                        <option value="9" >Noveno</option>    
+                                        <option value="10">Décimo</option>   
+                                      </select>    
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('nivel')?.hasError('required') && horarioForm.get('nivel')?.touched">
+                                        <span>El nivel<strong>es obligatorio</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="materia" class="mb-2"><strong>Materia:</strong> </label>
+                                    <input name="materia" formControlName="materia" type="text" placeholder="Materia"
+                                        class="form-control form-control-lg" aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('materia')?.hasError('required') && horarioForm.get('materia')?.touched">
+                                        <span>La materia<strong>es obligatoria</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="materia" class="mb-2"><strong>Cantidad de estudiantes:</strong> </label>
+                                    <input formControlName="cantidad_estudiantes" type="text"
+                                        placeholder="Cantidad de estudiantes" class="form-control form-control-lg"
+                                        aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('cantidad_estudiantes')?.hasError('required') && horarioForm.get('cantidad_estudiantes')?.touched">
+                                        <span>La cantidad de estudiantes <strong>es obligatoria</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="fecha" class="mb-2"><strong>Fecha:</strong> </label>
+                                    <input  name="fecha" formControlName="fecha" type="date" placeholder="fecha"
+                                        class="form-control form-control-lg" aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('fecha')?.hasError('required') && horarioForm.get('fecha')?.touched">
+                                        <span>La fecha <strong>es obligatoria</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3 gap-2">
+                                    <label class="mb-2"><strong>Horas de uso:</strong> </label>
+                                    <div class="col text-center">
+                                        <label for="inicio">Inicio</label>
+                                        <input formControlName="hora" name="inicio" type="time" placeholder="hora"
+                                            class="form-control form-control-lg" aria-describedby="emailHelp">
+                                        <div class="text-danger"
+                                            *ngIf="horarioForm.get('hora')?.hasError('required') && horarioForm.get('hora')?.touched">
+                                            <span>La hora de inicio <strong>es obligatoria</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="col text-center">
+                                        <label for="fin">Fin</label>
+                                        <input formControlName="hora2" name="fin" type="time" placeholder="hora"
+                                            class="col form-control form-control-lg" aria-describedby="emailHelp">
+                                        <div class="text-danger"
+                                            *ngIf="horarioForm.get('hora2')?.hasError('required') && horarioForm.get('hora2')?.touched">
+                                            <span>La hora final <strong>es obligatoria</strong></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="descripcion" class="mb-2"><strong>Descripción de la actividad:</strong> </label>
+                                    <textarea rows="4" cols="50" formControlName="actividades" type="text"
+                                        placeholder="actividades" class="form-control form-control-lg"
+                                        aria-describedby="emailHelp"></textarea>
+                                    <div class="text-danger"
+                                        *ngIf="horarioForm.get('actividades')?.hasError('required') && horarioForm.get('actividades')?.touched">
+                                        <span>Las actividades <strong>son obligatorias</strong></span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="mb-3 text-center">
+                                    <button type="submit" [disabled]="horarioForm.invalid"
+                                        class="btn btn-success btn-lg">
+                                        Aceptar
+                                    </button>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

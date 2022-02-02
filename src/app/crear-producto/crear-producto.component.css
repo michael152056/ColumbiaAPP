@@ -1,0 +1,171 @@
+.btn {
+    background-color:rgb(84, 0, 2);
+    border: none !important;
+    width:287px;
+}
+
+
+body {
+    background: #f1f1f1;
+}
+
+.barra {
+    background: rgb(241,241,241);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.nombre{
+    font-size: 2em;
+}
+
+.barra img{
+    width: 20em;
+    padding-left: 3vw;
+}
+#navbarDropdown{
+    width: 22em !important;
+    text-decoration: none;
+    margin-top: 1vw;
+}
+
+
+.dropdown-menu {
+   width: 1em !important;
+    background: rgb(0, 0, 0);
+    color: white;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.menuperfil {
+    margin:  0 !important;
+    color: white !important;
+}
+.cerrar:hover {
+    background-color: rgb(173,31,46);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+}
+
+.user {
+    font-size: 35px;
+}
+
+
+/*BARRA LATERAL*/
+
+.barra-lateral {
+    padding: 0;
+}
+
+span.placeholder{
+    background-color:rgb(109, 35, 35)  !important;
+    opacity:  100 !important;
+}
+
+
+/*ESTILOS MENU*/
+
+.barra-lateral .menu a {
+    display: block;
+    padding: 20px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+
+.active {
+    background: #003C5D;
+}
+
+.barra-lateral .menu {
+    border-top: 5px #fff solid;
+}
+
+.barra-lateral .menu a i {
+    margin-right: 20px;
+}
+
+
+/*MAIN*/
+
+.main {
+    padding-top: 40px;
+    margin-left: -10%;
+}
+
+
+.main .columna {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+/*mediaquerys*/
+
+@media screen and (max-width:1300px) {
+    .barra-lateral {
+        min-width: auto;
+    }
+    .barra-lateral .menu a span {
+        display: none;
+    }
+    .barra-lateral .menu a i {
+        margin: 0;
+    }
+    .barra {
+        min-width: auto;
+    }
+    .dropdown-menu {
+        margin: 20px -79px 0px;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .barra-lateral {
+        min-height: auto;
+    }
+    .barra-lateral .menu a {
+        display: inline-block;
+        border-bottom: none;
+    }
+    .dropdown-menu {
+        margin: 20px -78px 0px;
+    }
+    .logocppe {
+        width: 100%;
+    }
+    body {
+        background: #D3D3D3;
+        font-size: 16px;
+        overflow: visible;
+    }
+}
+
+.formulariorecursos {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.568);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.menu {
+    border-top: 5px #fff solid;
+}
+
+@media screen and (max-width:575px) {
+    .barra-lateral {
+        height: auto;
+    }
+    .barra-lateral.menu a {
+        display: inline-block;
+        border-bottom: none;
+    }
+    .dropdown-menu {
+        margin: 20px -78 0px;
+    }
+    body {
+        font-size: 16px;
+        overflow: visible;
+    }
+}

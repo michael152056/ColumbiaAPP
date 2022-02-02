@@ -1,0 +1,94 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="barra-lateral col-12 col-sm-auto">
+            <app-menu-dash></app-menu-dash>
+        </div>
+        <main class="main col">
+            <div class="container mt-5">
+                <div class="row">
+                    <div style="padding: 0 0 !important;margin: 0 !important;" class="col-lg-12 offset-lg-2">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <span class="titulo">Carrito</span>
+                                <br>
+                                <br>
+                                <div class="row row-cols-auto">
+                                    <div class="col">
+                                        <button class="btn btn-success float-start" routerLink="/ventas">
+                                            Añadir nuevo item <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                  
+
+                                    <div class="col">
+                                        <button class="btn btn-danger text-center" (click)="eliminarCarrito()">
+                                            Limpiar Carrito <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div> 
+
+                                </div>
+                                <br>
+                                <br>
+                                <table *ngIf="listCarrito.length > 0"
+                                    class="table table-hover table-bordered table-striped mt-3">
+                                    <thead>
+                                        <tr class="">
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Imágen</th>
+                                            <th scope="col">categoría</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Precio Total</th>
+                                    
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let carrito of listCarrito"  >
+                                            <td>{{carrito.nombre}}</td>
+                                            <td><img class="img-thumbnail" src="{{carrito.imagen}}" alt=""></td>
+                                            <td>{{carrito.categoria}}</td>
+                                            <td> <input class="form-control text-center" type="number"
+                                                max="{{carrito.cantidad}}" min="0" name="" id=""
+                                                value="{{carrito.cantidad}}" disabled> </td>
+
+                                            <td>{{carrito.precio}}</td>
+                                            <td>{{carrito.precio * carrito.cantidad}}</td>
+                                            
+                                              <td><i
+                                                (click)="eliminarCarritoOne(carrito._id)"
+                                                class="fas fa-trash text-danger"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Subtotal:</td>
+                                            <td colspan="1"><b>${{total - (total*0.12)}}</b></td>
+                                          
+                                        </tr>
+                                        <tr>
+                                            <td>Iva 12%</td>
+                                            <td colspan="1"><b>${{(total*0.12)}}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total</td>
+                                            <td colspan="1"><b>${{(total)}}</b></td>
+                                        </tr>
+                                 
+                                    </tbody>
+                                    
+                                </table>
+                                <button *ngIf="listCarrito.length > 0" class="btn btn-success" routerLink="/factura/{{total}}">Confirmar Compra</button>
+                            
+                                <h5 style="text-align: start;margin-bottom: 10px;" *ngIf="listCarrito.length == 0">
+                                    No hay eventos para mostrar</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>

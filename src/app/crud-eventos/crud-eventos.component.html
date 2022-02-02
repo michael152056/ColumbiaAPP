@@ -1,0 +1,65 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="barra-lateral col-12 col-sm-auto">
+            <app-menu-admin></app-menu-admin>
+        </div>
+        <main class="main col">
+
+            <div class="container mt-5">
+                <div  class="row">
+                    <div style="padding: 0 0 !important;margin: 0 !important;" class="col-lg-12 offset-lg-2">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <span class="titulo">Listado de Eventos</span>
+                                <br>
+                                <br>
+                                <button class="btn btn-success float-start" routerLink="/crear-evento">
+                                    Nuevo <i class="fas fa-plus"></i>
+                                </button>
+                                <br>
+                                <br>
+                                <table *ngIf="listEventos.length > 0" class="table table-hover table-bordered table-striped mt-3">
+                                    <thead>
+                                        <tr class="">
+                                            <th scope="col">Título</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Descripción</th>
+                                            <th scope="col">Día</th>
+                                            <th scope="col">Mes</th>
+                                            <th scope="col">Año</th>
+                                            <th scope="col">Imágen</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let evento of listEventos">
+                                            <td >{{evento.titulo_evento}}</td>
+                                            <td>{{evento.tipo_evento}}</td>
+                                            <td>{{evento.desc_evento}}</td>
+                                            <td>{{evento.dia_evento}}</td>
+                                            <td>{{evento.mes_evento}}</td>
+                                            <td>{{evento.ano_evento}}</td>
+                                            <td><img class="img-thumbnail" src="{{evento.imagen_evento}}" alt=""></td>
+                                            <td><i (click)="ruta(evento._id)" 
+                                                class="fas fa-edit text-primary"></i><i
+                                                (click)="eliminarEvento(evento._id)"
+                                                class="fas fa-trash text-danger"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h5 style="text-align: start;margin-bottom: 10px;" *ngIf="listEventos.length == 0">
+                                    No hay eventos para mostrar</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>

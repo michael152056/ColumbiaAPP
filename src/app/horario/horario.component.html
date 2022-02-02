@@ -1,0 +1,15 @@
+
+<app-cabeza-usuario></app-cabeza-usuario>
+  
+<div class="container-fluid">
+    <div class="row">
+<div class="barra-lateral col-12 col-sm-auto">
+    <app-menu-dash></app-menu-dash>
+  </div>
+  <div class="calendario" *ngFor="let hor of listHorario; let i=index"  >
+    <div *ngIf="i==0">
+      <p-fullCalendar [events]="listEvents" [options] = "options"></p-fullCalendar> 
+    </div>
+ 
+  </div>
+  </div>

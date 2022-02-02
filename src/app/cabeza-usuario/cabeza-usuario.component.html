@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row justify-content-center align-content-center">
+      <div class="col-8 barra">
+        <img src="assets/columbia_logo.png" class="img-fluid" alt="">
+      </div>
+      <div class="col-4 text-right barra">
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <a   href="#" class="text-light perfil " id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                class="fas fa-user-circle user"></i>
+                &nbsp; {{getNombre()}} <br> &nbsp; Tipo: {{getTipo()}} <br>&nbsp; {{getFecha()}}
+              </a>
+             
+  
+            <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+              <a class="dropdown-item menuperfil cerrar" ><i class="fas fa-sign-out-alt m-1"></i>Salir
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

@@ -29,8 +29,7 @@ body {
 }
 
 .img_login {
-  background-image: url(/assets/IMG_8073.jpeg);
-  background-color: rgb(13, 37, 73);
+  background-image: url(/assets/imagen_login.jpg);
   background-position: center center;
   background-size: cover;
 }
@@ -50,6 +49,99 @@ body {
 
 .text-black a{
 	text-decoration: none;
+}
+
+.btn-primary{
+  background-color: rgb(173,31,46);
+  border: none;
+}
+
+.btn-primary:hover{
+  background-color: rgb(84, 0, 2);
+}
+
+.placeholder{
+  opacity: 1 !important;
+  background: black !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+
+
+}
+
+.recuperar_clave{
+  color: rgb(173,31,46) !important;
+}
+
+.container_img {
+  display: flex;
+  justify-content: center;
+}
+
+h5 {
+  font-size: 1vw;
+}
+/* Barra de navegación */
+
+.navbar-brand img {
+  margin-left: 10px;
+  width: 7em;
+}
+
+.nav-item i {
+  padding: 0.5em;
+}
+
+.collapse {
+  text-align: center !important;
+  position: relative;
+  margin: 0;
+  align-items: center;
+}
+.navbar-dark .navbar-toggler {
+  background-color: rgb(84, 0, 2);
+  padding: 0.4em;
+}
+
+.navbar-nav a {
+  color: rgb(84, 0, 2) !important;
+  font-size: 1.1em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  margin-left: 2em;
+  padding: 1em;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.navbar-nav a:hover {
+  background-color: rgb(84, 0, 2) ;
+  color: white !important;
+}
+
+.navbar-nav .active {
+  background-color: rgb(84, 0, 2);
+  color: white !important;
+}
+
+.navbar {
+  background-color: white !important;
+  padding: 1em;
 }
 
 /* Footer */

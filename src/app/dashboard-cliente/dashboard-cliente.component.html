@@ -1,0 +1,26 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div  class="barra-lateral col-12 col-sm-auto">
+      
+      <app-menu-dash></app-menu-dash>
+    </div>
+    <main>
+      <div class="galera">
+        <div *ngFor="let opcion of opciones" class="tarjeta" [style.backgroundColor]="opcion.color">
+            <div class="cuerpo">
+              <h3 class="titulo-tarjeta">{{opcion.titulo}}</h3>
+              <p class="info1">{{opcion.info1}}</p>
+              <p class="info2">{{opcion.info2}}</p>
+            </div>
+            <div class="icono">
+              <img class="imagen" src="{{opcion.imagen}}" alt="{{opcion.imagen}}">
+            </div>
+        </div>
+      </div>
+      
+    </main>
+  </div>
+</div>

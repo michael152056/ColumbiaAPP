@@ -1,0 +1,59 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="barra-lateral col-12 col-sm-auto">
+      <app-menu-admin></app-menu-admin>
+    </div>
+    <main class="main col">
+      <div class="row justify-content-center align-content-center text-center">
+        <div class="columna col-lg-6">
+
+          <figure class="text-center" style="margin-left: 20% ;">
+            <h1 class="h1" style="color: black;">Actualizar Datos</h1>
+            <p aria-hidden="true">
+              <span class="placeholder col-6" style="background-color: rgb(255, 219, 0);"></span>
+            </p>
+
+          </figure>
+
+
+          <form [formGroup]="registradoForm"  (ngSubmit)="agregarRegistrado()"
+            class="row g-3" style="margin-left: 30%; width: 500px;">
+          
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Ubicación</label>
+              <input formControlName="ubicacion" name="ubicacion"  type="text"
+                class="form-control" id="inputAddress" placeholder="1234 Main St">
+
+              <label for="inputAddress2" class="form-label">Celular</label>
+              <input formControlName="celular" name="celular"  type="text"
+                class="form-control" id="inputAddress2" placeholder="+593 123456789">
+            </div>
+
+            <div class="col-md-12">
+              <label for="inputPassword5" class="form-label">Contraseña </label>
+              <input formControlName="clave" name="clave"  type="password"
+                placeholder="Ingresa una nueva contraseña" class="form-control" id="inputPassword4">
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" id="liveAlertBtn">Confirmar</button>
+            </div>
+
+
+
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</div>

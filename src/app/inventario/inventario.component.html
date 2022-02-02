@@ -1,0 +1,77 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="barra-lateral col-12 col-sm-auto">
+            <app-menu-dash></app-menu-dash>
+        </div>
+        <main class="main col">
+            <div class="container mt-5">
+                <div class="row">
+                    <div style="padding: 0 0 !important;margin: 0 !important;" class="col-lg-12 offset-lg-2">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <span class="titulo">Listado de Productos</span>
+                                <br>
+                                <br>
+                                <div class="row row-cols-auto">
+                                    <div class="col">
+                                        <button class="btn btn-success float-start" routerLink="/crear-producto">
+                                            Añadir producto <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+
+                                        <div class="input-group mb-3 input_search">
+                                            <input type="text" class="form-control" name="filterPost"
+                                                [(ngModel)]="filterPost" placeholder="Comienza tu búsqueda"
+                                                aria-label="Example text with button addon"
+                                                aria-describedby="button-addon1">
+                                            <button class="btn btn-outline-secondary btn_buscar" (click)="onSearch()"
+                                                type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                                        </div>
+
+
+                                    </div>
+        
+                                </div>
+                                <br>
+                         
+                                <table [formGroup]="productoForm" *ngIf="listProductos.length > 0"
+                                    class="table table-hover table-bordered table-striped mt-3">
+                                    <thead>
+                                        <tr class="">
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Imágen</th>
+                                            <th scope="col">categoría</th>
+                                            <th scope="col">Estado</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let producto of listProductos | filter:filterPost">
+                                            <td>{{producto.nombre}}</td>
+                                            <td><img class="img-thumbnail" src="{{producto.imagen}}" alt=""></td>
+                                            <td>{{producto.categoria}}</td>
+                                            <td>{{producto.estado}}</td>
+                                            <td>{{producto.precio}}</td>
+                                            <td><i (click)="ruta(producto._id)" 
+                                                class="fas fa-edit text-primary"></i><i
+                                                (click)="eliminarProducto(producto._id)"
+                                                class="fas fa-trash text-danger"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h5 style="text-align: start;margin-bottom: 10px;" *ngIf="listProductos.length == 0">
+                                    No hay eventos para mostrar</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>

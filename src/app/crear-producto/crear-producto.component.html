@@ -1,0 +1,118 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        
+        <div class="barra-lateral col-12 col-sm-auto">
+            <app-menu-dash></app-menu-dash>
+        </div>
+        <div class="col container mt-5">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="card">
+                        <div class="card-body  ">
+                            <span class="nombre">
+                                {{titulo | uppercase}}
+                            </span>
+                            <form class="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+
+                                <div class="mb-3">
+                                    <label for="nombre_producto" class="mb-2"><strong>Nombre:</strong> </label>
+                                    <input name="nombre_producto" formControlName="nombre" type="text" placeholder="Nombre del producto"
+                                        class="form-control form-control-lg" aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="productoForm.get('nombre')?.hasError('required') && productoForm.get('nombre')?.touched">
+                                        <span>El nombre <strong>es obligatorio</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="categoria_producto" class="mb-2"><strong>Tipo:</strong> </label>
+                                    <select formControlName="categoria" name="categoria_producto"
+                                    class="form-control form-control-lg" aria-describedby="emailHelp">
+                                       <option value="" >------Seleccione una opción-----</option>  
+                                        <option value="Especialidades" >Especialidades</option>    
+                                        <option value="Parrilladas">Parrilladas</option>    
+                                        <option value="Bebidas">Bebidas</option>    
+                                        <option value="Hamburguesas">Hamburguesas</option>    
+                                        <option value="Postres">Postres</option>
+                                        <option value="Entradas">Entradas</option>     
+                                        <option value="Sopas">Sopas</option>   
+                                        <option value="Brochetas">Brochetas</option>  
+                                        <option value="Menú infantil">Menú infantil</option>        
+                                      </select>    
+                                    <div class="text-danger"
+                                        *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">
+                                        <span>El categoria <strong>es obligatoria</strong></span>
+                                    </div>
+                                </div>
+                
+                        
+                                <div class="mb-3">
+                                    <label for="precio_producto" class="mb-2"><strong>Precio:</strong> </label>
+                                    <input name="precio" formControlName="precio" type="number" placeholder="Precio"
+                                        class="form-control form-control-lg" aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">
+                                        <span>El precio es<strong>obligatorio</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="cantidad_producto" class="mb-2"><strong>Cantidad:</strong> </label>
+                                    <input name="cantidad_producto" formControlName="cantidad" type="number" placeholder="Cantidad"
+                                        class="form-control form-control-lg" aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="productoForm.get('cantidad')?.hasError('required') && productoForm.get('cantidad')?.touched">
+                                        <span>La cantidad es<strong>obligatoria</strong></span>
+                                    </div>
+                                </div>
+
+
+                        
+                                <div class="mb-3">
+                                    <label for="estado" class="mb-2"><strong>Estado:</strong> </label>
+                                    <select formControlName="estado" name="estado"
+                                    class="form-control form-control-lg" aria-describedby="emailHelp">
+                                       <option value="" >------Seleccione una opción-----</option>  
+                                        <option value="Disponible" >Disponible</option>    
+                                        <option value="Agotado">Agotado</option>    
+                                      </select>    
+                                    <div class="text-danger"
+                                        *ngIf="productoForm.get('estado')?.hasError('required') && productoForm.get('estado')?.touched">
+                                        <span>El estado <strong>es obligatorio</strong></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="imagen_producto" class="mb-2"><strong>Imagen:</strong> </label>
+                                    <input name="imagen_producto" formControlName="imagen" type="text" placeholder="Imágen"
+                                        class="form-control form-control-lg" aria-describedby="emailHelp">
+                                    <div class="text-danger"
+                                        *ngIf="productoForm.get('imagen_producto')?.hasError('required') && productoForm.get('imagen_producto')?.touched">
+                                        <span>La imagén es<strong>obligatoria</strong></span>
+                                    </div>
+                                </div>
+
+                               
+
+
+
+                                <div class="mb-3 text-center">
+                                    <button type="submit" [disabled]="productoForm.invalid"
+                                        class="btn btn-success btn-lg float-end">
+                                        Aceptar
+                                    </button>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="barra-lateral col-12 col-sm-auto">
+            <app-menu-dash></app-menu-dash>
+        </div>
+        <div class="col container mt-5">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="titulo">
+                                {{titulo | uppercase}}
+                            </span>
+                            <form class="mt-3" [formGroup] = "registradoForm" (ngSubmit)="agregarRegistrado()">
+                                <div class="mb-3">
+                                  
+                                    <input  formControlName="nombres" type="text" placeholder="Nombres" class="form-control form-control-lg"  aria-describedby="emailHelp">
+                                    <div class="text-danger" *ngIf="registradoForm.get('nombres')?.hasError('required') && registradoForm.get('nombres')?.touched">
+                                        <span>El nombre del usuario <strong>es obligatorio</strong></span>
+                                    </div>
+                                  </div>
+                
+                                  <div class="mb-3">
+                                  
+                                    <input formControlName="correo" type="email" placeholder="Correo" class="form-control form-control-lg"  aria-describedby="emailHelp">
+                                    <div class="text-danger" *ngIf="registradoForm.get('correo')?.hasError('required') && registradoForm.get('correo')?.touched">
+                                        <span>El correo <strong>es obligatorio</strong></span>
+                                    </div>
+                                  </div>
+                                  <div class="mb-3">
+                                  
+                                    <input formControlName="ubicacion" type="text" placeholder="ubicación" class="form-control form-control-lg"  aria-describedby="emailHelp">
+                                    <div class="text-danger" *ngIf="registradoForm.get('ubicacion')?.hasError('required') && registradoForm.get('ubicacion')?.touched">
+                                        <span>La ubicación <strong>es obligatoria</strong></span>
+                                    </div>
+                                  </div>
+                                  <div class="mb-3">
+                                  
+                                    <input formControlName="celular" type="text" placeholder="celular" class="form-control form-control-lg"  aria-describedby="emailHelp">
+                                    <div class="text-danger" *ngIf="registradoForm.get('celular')?.hasError('required') && registradoForm.get('celular')?.touched">
+                                        <span>El número de celular <strong>es obligatorio</strong></span>
+                                    </div>
+                                  </div>
+
+                                  <div class="mb-3">
+                                  
+                                    <input formControlName="cedula" type="text" placeholder="cedula" class="form-control form-control-lg"  aria-describedby="emailHelp">
+                                    <div class="text-danger" *ngIf="registradoForm.get('cedula')?.hasError('required') && registradoForm.get('cedula')?.touched">
+                                        <span>El número de cédula <strong>es obligatorio</strong></span>
+                                    </div>
+                                  </div>
+
+
+                                  <div class="mb-3 text-center">
+        
+                                      <button type="submit" [disabled]="registradoForm.invalid" class="btn btn-success btn-lg float-end">
+                                        Aceptar
+                                    </button>
+                                  </div>
+        
+                            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="barra-lateral col-12 col-sm-auto">
+            <app-menu-admin></app-menu-admin>
+        </div>
+        <main class="main col">
+
+            <div class="container mt-5">
+                <div  class="row">
+                    <div style="padding: 0 0 !important;margin: 0 !important;" class="col-lg-12 offset-lg-2">
+                        <div class="card">
+                            <div class="card-body text-center">
+                               <h3 class="titulo"> Auditoría</h3>
+                                <br>
+                                <table *ngIf="listTransaccions.length > 0" class="table table-hover table-bordered table-striped mt-3">
+                                    <thead>
+                                        <tr class="">
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Hora</th>
+                                            <th scope="col">Código</th>
+                                            <th scope="col">Cliente</th>
+                                            <th scope="col">Cajero</th>
+                                            <th scope="col">Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr *ngFor="let transaccion of listTransaccions" >
+                                            <td >{{transaccion.fecha}}</td>
+                                            <td>{{transaccion.hora}}</td>
+                                            <td>{{transaccion.codigo}}</td>
+                                            <td>{{transaccion.cliente}}</td>
+                                            <td>{{transaccion.cajero}}</td>
+                                            <td>{{transaccion.valor}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h5 style="text-align: start;margin-bottom: 10px;" *ngIf="listTransaccions.length == 0">
+                                    No hay transaccions para mostrar</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>

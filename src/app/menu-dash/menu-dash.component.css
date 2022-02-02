@@ -1,0 +1,129 @@
+
+body {
+    background: #f1f1f1;
+}
+
+
+.barra {
+    background: rgb(255, 219, 0);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+
+/*BARRA LATERAL*/
+
+.barra-lateral {
+    background: rgb(241,241,241);
+    color: rgb(63,63,63) !important;
+    min-width: 250px;
+    min-height: auto;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100 !important;
+}
+
+.barra-lateral a {
+    color: rgb(63,63,63) !important;
+
+}
+
+/*ESTILOS MENU*/
+
+.barra-lateral .menu a {
+    display: block;
+    padding: 20px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    text-decoration: none;
+}
+
+.barra-lateral .menu a:hover {
+    background-color: rgb(84, 0, 2);
+    text-decoration: none;
+    color: white !important;
+}
+
+.active {
+    background: #003C5D;
+}
+
+.barra-lateral .menu {
+    border-top: 5px #fff solid;
+}
+
+.barra-lateral .menu a i {
+    margin-right: 20px;
+}
+
+
+
+/*mediaquerys*/
+
+@media screen and (max-width:1300px) {
+    .barra-lateral {
+        min-width: auto;
+    }
+    .barra-lateral .menu a span {
+        display: none;
+    }
+    .barra-lateral .menu a i {
+        margin: 0;
+    }
+    .barra {
+        min-width: auto;
+    }
+    .dropdown-menu {
+        margin: 20px -79px 0px;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .barra-lateral {
+        min-height: auto;
+    }
+    .barra-lateral .menu a {
+        display: inline-block;
+        border-bottom: none;
+    }
+    .dropdown-menu {
+        margin: 20px -78px 0px;
+    }
+    .logocppe {
+        width: 100%;
+    }
+    body {
+        background: #D3D3D3;
+        font-size: 16px;
+        overflow: visible;
+    }
+}
+
+.formulariorecursos {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.568);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.menu {
+    border-top: 5px #fff solid;
+}
+
+@media screen and (max-width:575px) {
+    .barra-lateral {
+        height: auto;
+    }
+    .barra-lateral.menu a {
+        display: inline-block;
+        border-bottom: none;
+    }
+    .dropdown-menu {
+        margin: 20px -78 0px;
+    }
+    body {
+        font-size: 16px;
+        overflow: visible;
+    }
+}

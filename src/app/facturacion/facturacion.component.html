@@ -1,0 +1,106 @@
+<app-cabeza-usuario></app-cabeza-usuario>
+
+<div class="container-fluid">
+  <div class="row">
+      
+      <div class="barra-lateral col-12 col-sm-auto">
+          <app-menu-dash></app-menu-dash>
+      </div>
+      <div class="col container mt-5">
+          <div class="row factura_container">
+              
+<div class="cuerpo">
+  <h2>Facturación</h2>
+  <div class="informacion">
+    <div class="formulario">
+      <h4>Buscar Cliente</h4>
+      <form [formGroup] = "registradoForm">
+        <table>
+
+          <tr>
+            <td><label for="ci">Cédula: </label></td>
+            <td><input type="text"  formControlName="cedula" class="form-control" id="ci"></td>
+            <td><button (click) = "obtenerRegistrados()" type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                  height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg> Buscar</button></td>
+            <td><button  routerLink="/crudUsuarios"  type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                  height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                  <path
+                    d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                  <path fill-rule="evenodd"
+                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                </svg> Crear</button></td>
+          </tr>
+
+
+          <tr>
+            <td><label for="nombre" >Nombres: </label></td>
+            <td><input type="text" formControlName="nombres" class="form-control" id="nombre" readonly></td>
+          </tr>
+
+          <tr>
+            <td><label for="nombre">Correo: </label></td>
+            <td><input type="mail" formControlName="correo" class="form-control" id="correo" readonly></td>
+          </tr>
+          <tr>
+            <td><label for="celular">Celular: </label></td>
+            <td><input type="text" formControlName="celular" class="form-control" id="celular" readonly></td>
+          </tr>
+
+          <tr>
+            <td><label for="ubicacion">Ubicación: </label></td>
+            <td><input type="text" formControlName="ubicacion" class="form-control" id="celular" readonly></td>
+          </tr>
+
+      
+              <tr>
+                <td><label for="metodoPago">Método de pago: </label></td>
+                <td><select class="form-control" id="metodoPago">
+                    <option>Efectivo</option>
+                    <option>Tarjeta</option>
+                  </select></td>
+              </tr>
+      
+              <tr>
+                <td><label for="subtotal">Subtotal: </label></td>
+                <td><input type="text" formControlName="subtotal"  class="form-control" id="subtotal" ></td>
+              </tr>
+      
+              <tr>
+                  <td><label for="iva">Iva 12%: </label></td>
+                  <td><input type="text" formControlName="iva" class="form-control" id="iva" ></td>
+                </tr>
+      
+              <tr>
+                <td><label for="total">Valor Total: </label></td>
+                <td><input type="text" formControlName="total" class="form-control" id="total" ></td>
+              </tr>
+      
+    
+        </table>
+      </form> 
+    </div>
+    
+  </div>
+  <div class="impresion">
+
+    <button (click)="agregarTransaccion()" type="button" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+       Pagar</button> &nbsp;
+
+    <button  (click)="generatePDF()" type="button" class="btn btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+        fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+        <path
+          d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
+      </svg> Imprimir</button>
+  </div>
+
+</div>
+
+            </div>
+      </div>
+  </div>
+</div>
+
